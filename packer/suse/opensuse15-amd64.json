@@ -55,7 +55,9 @@
       "execute_command": "echo '{{user `root_pwd`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "scripts/packages.sh",
-        "scripts/cleanup.sh"
+        "scripts/cleanup.sh",
+        "scripts/issue_ip.sh",
+        "scripts/sudo_wheel.sh"
       ]
     }
   ]
