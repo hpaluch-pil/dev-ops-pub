@@ -1,0 +1,26 @@
+*~
+*.swp
+*.bak
+*.log
+*.vmdk
+*.ovf
+*.iso
+*.tfstate
+.vagrant/
+*.tmp
+# vmware artifacts
+*.mf
+*.nvram
+*.retry
+packer_cache/
+output-virtualbox-iso/
+output-virtualbox-ovf/
+output-qemu/
+parse-tcpdump-udp-port-53.php
+*-credentials.json
+# temporary scripts
+xxx.sh
+xxx.cmd
+# hyper-v output
+output-hyperv-iso/
+
