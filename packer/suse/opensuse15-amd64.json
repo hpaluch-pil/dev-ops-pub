@@ -32,6 +32,7 @@
       "ssh_password": "{{user `ansible_pwd`}}",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
+      "ssh_handshake_attempts": "10000",
       "shutdown_command": "echo '{{user `root_pwd`}}'|sudo -S /sbin/shutdown -hP now",
       "hard_drive_interface": "sata",
       "hard_drive_discard":"true",
