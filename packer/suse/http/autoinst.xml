@@ -396,6 +396,7 @@
       <package>autoyast2</package>
       <package>vim</package>
       <package>sudo</package>
+      <package>less</package>
     </packages>
     <patterns config:type="list">
       <pattern>apparmor</pattern>
