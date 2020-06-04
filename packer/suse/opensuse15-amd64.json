@@ -12,12 +12,12 @@
       "export_opts":
 	  [ 
 	  "--vsys", "0",
-	  "--description", "login/password:\r\n  ansible/{{user `ansible_pwd`}}\r\n root/{{user `root_pwd`}}\r\nsudo bash to get root access" 
+	  "--description", "login/password:\r\n  ansible/{{user `ansible_pwd`}}\r\n root/{{user `root_pwd`}}\r\nor type 'sudo bash' to get root access" 
 	  ],
       "format": "ova",
       "boot_command": [
         "<esc><wait><enter><wait>",
-        "linux autoyast=http://{{ .HTTPIP }}:{{ .HTTPPort }}/autoinst.xml",
+        "linux autoyast=http://{{ .HTTPIP }}:{{ .HTTPPort }}/autoinst.xml ",
         "<enter><wait>"
       ],
       "boot_wait": "10s",
@@ -55,9 +55,11 @@
       "type": "shell",
       "execute_command": "echo '{{user `root_pwd`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
+        "scripts/fix_repos.sh",
         "scripts/packages.sh",
-        "scripts/cleanup.sh",
+        "scripts/clean_grub.sh",
         "scripts/issue_ip.sh",
+        "scripts/cleanup.sh",
         "scripts/sudo_wheel.sh"
       ]
     }
