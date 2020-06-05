@@ -16,9 +16,10 @@ How to build image:
 
 ```cmd
 rem must pass without error
-packer validate opensuse15-amd64.json
+packer validate opensuse-15.X-amd64.json
 rem If it fails on SSH handshake, press 'r' and ENTER to retry
-packer build -on-error=ask opensuse15-amd64.json
+packer build -on-error=ask opensuse-15.X-amd64.json
+
 ```
 
 

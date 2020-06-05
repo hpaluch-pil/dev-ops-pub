@@ -1,0 +1,68 @@
+{
+    "variables": {
+        "root_pwd": "RootHesl007",
+        "ansible_pwd": "Hesl007",
+	"suse_codename": "leap",
+	"suse_codename_uc": "Leap",
+        "suse_version": "15.2",
+        "suse_build": "671.5"
+    },
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "export_opts":
+	  [ 
+	  "--vsys", "0",
+	  "--description", "login/password:\r\n  ansible/{{user `ansible_pwd`}}\r\n root/{{user `root_pwd`}}\r\nor type 'sudo bash' to get root access" 
+	  ],
+      "format": "ova",
+      "boot_command": [
+        "<esc><wait><enter><wait>",
+        "linux autoyast=http://{{ .HTTPIP }}:{{ .HTTPPort }}/autoinst.xml ",
+        "<enter><wait>"
+      ],
+      "boot_wait": "10s",
+      "disk_size": 16384,
+      "guest_os_type": "OpenSUSE_64",
+      "headless": false,
+      "http_directory": "http",
+      "iso_checksum": "cc6b095e23186aea1d47366d2db0bbcf6ab9bdf5344a99ff31d2008084eb8a88",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://ftp.linux.cz/pub/linux/opensuse/distribution/{{user `suse_codename`}}/{{user `suse_version`}}/iso/openSUSE-{{user `suse_codename_uc`}}-{{user `suse_version`}}-NET-x86_64-Build{{user `suse_build`}}-Media.iso",
+      "ssh_username": "ansible",
+      "ssh_password": "{{user `ansible_pwd`}}",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "ssh_handshake_attempts": "10000",
+      "shutdown_command": "echo '{{user `root_pwd`}}'|sudo -S /sbin/shutdown -hP now",
+      "hard_drive_interface": "sata",
+      "hard_drive_discard":"true",
+      "hard_drive_nonrotational":"true",
+      "vm_name": "opensuse-{{user `suse_version`}}-b{{user `suse_build`}}-amd64",
+      "vboxmanage": [
+        [ "modifyvm", "{{.Name}}", "--memory", "2048" ],
+        [ "modifyvm", "{{.Name}}", "--cpus", "1" ],
+        [ "modifyvm", "{{.Name}}", "--rtcuseutc", "on" ],
+        [ "modifyvm", "{{.Name}}", "--audio", "none" ],
+        [ "modifyvm", "{{.Name}}", "--nictype1", "virtio" ],
+        [ "modifyvm", "{{.Name}}", "--nictype2", "virtio" ],
+        [ "modifyvm", "{{.Name}}", "--nic2", "hostonly" ],
+        [ "modifyvm", "{{.Name}}", "--hostonlyadapter2", "VirtualBox Host-Only Ethernet Adapter" ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo '{{user `root_pwd`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "scripts/fix_repos-15.2.sh",
+        "scripts/packages.sh",
+        "scripts/clean_grub.sh",
+        "scripts/issue_ip.sh",
+        "scripts/cleanup.sh",
+        "scripts/sudo_wheel.sh"
+      ]
+    }
+  ]
+}
