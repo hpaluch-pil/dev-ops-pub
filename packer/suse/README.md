@@ -22,5 +22,9 @@ packer build -on-error=ask opensuse-15.X-amd64.json
 
 ```
 
+# Bugs
+
+* no `man` installed - it is because ridiculous dependency
+  on X11 and CUPS
 
 
