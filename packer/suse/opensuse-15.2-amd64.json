@@ -4,8 +4,7 @@
         "ansible_pwd": "Hesl007",
 	"suse_codename": "leap",
 	"suse_codename_uc": "Leap",
-        "suse_version": "15.2",
-        "suse_build": "671.5"
+        "suse_version": "15.2"
     },
   "builders": [
     {
@@ -26,9 +25,9 @@
       "guest_os_type": "OpenSUSE_64",
       "headless": false,
       "http_directory": "http",
-      "iso_checksum": "cc6b095e23186aea1d47366d2db0bbcf6ab9bdf5344a99ff31d2008084eb8a88",
+      "iso_checksum": "02a77812443dd3e47c36611c8837bf8d1659aea6b4d16c9db6841c564d59b7af",
       "iso_checksum_type": "sha256",
-      "iso_url": "http://ftp.linux.cz/pub/linux/opensuse/distribution/{{user `suse_codename`}}/{{user `suse_version`}}/iso/openSUSE-{{user `suse_codename_uc`}}-{{user `suse_version`}}-NET-x86_64-Build{{user `suse_build`}}-Media.iso",
+      "iso_url": "http://ftp.linux.cz/pub/linux/opensuse/distribution/{{user `suse_codename`}}/{{user `suse_version`}}/iso/openSUSE-{{user `suse_codename_uc`}}-{{user `suse_version`}}-NET-x86_64.iso",
       "ssh_username": "ansible",
       "ssh_password": "{{user `ansible_pwd`}}",
       "ssh_port": 22,
@@ -38,7 +37,7 @@
       "hard_drive_interface": "sata",
       "hard_drive_discard":"true",
       "hard_drive_nonrotational":"true",
-      "vm_name": "opensuse-{{user `suse_version`}}-b{{user `suse_build`}}-amd64",
+      "vm_name": "opensuse-{{user `suse_version`}}-amd64",
       "vboxmanage": [
         [ "modifyvm", "{{.Name}}", "--memory", "2048" ],
         [ "modifyvm", "{{.Name}}", "--cpus", "1" ],
