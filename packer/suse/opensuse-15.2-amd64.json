@@ -12,7 +12,7 @@
       "export_opts":
 	  [ 
 	  "--vsys", "0",
-	  "--description", "login/password:\r\n  ansible/{{user `ansible_pwd`}}\r\n root/{{user `root_pwd`}}\r\nor type 'sudo bash' to get root access" 
+	  "--description", "Build {{isotime}} of {{user `suse_codename_uc`}} {{user `suse_version`}}\r\nlogin/password:\r\n  ansible/{{user `ansible_pwd`}}\r\n root/{{user `root_pwd`}}\r\nor type 'sudo bash' to get root access" 
 	  ],
       "format": "ova",
       "boot_command": [
