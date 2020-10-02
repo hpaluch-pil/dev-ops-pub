@@ -255,14 +255,14 @@
     <interfaces config:type="list">
       <interface>
         <bootproto>dhcp4</bootproto>
-        <device>eth0</device>
+        <device>enp0s3</device>
         <startmode>auto</startmode>
         <dhclient_set_default_route>yes</dhclient_set_default_route>
         <name>Ethernet Card 0</name>
       </interface>
       <interface>
         <bootproto>dhcp4</bootproto>
-        <device>eth1</device>
+        <device>enp0s8</device>
         <startmode>auto</startmode>
       </interface>
       <interface>
