@@ -22,6 +22,17 @@ packer build -on-error=ask opensuse-15.X-amd64.json
 
 ```
 
+# Notes
+
+There is now experimentl support for Tumbleweed using
+file `opensuse-tumbleweed-amd64.json`.
+
+Known Bugs in Tumbleweed install:
+* two validation errors in `http/autoinst.xml` (manually click on 
+  `Continue` to finish installation)
+* one of network cards is not initialized
+
+
 # Bugs
 
 * no `man` installed - it is because ridiculous dependency
