@@ -4,7 +4,8 @@
         "ansible_pwd": "Hesl007",
 	"suse_codename": "tumbleweed",
 	"suse_codename_uc": "Tumbleweed",
-        "suse_version": "20200929"
+        "suse_version": "20200930",
+	"iso_hash": "14fcc527b49fb2eb8886eb01ac1afd75cef4fbafb3c76156305a56452a54c1bf"
     },
   "builders": [
     {
@@ -17,7 +18,7 @@
       "format": "ova",
       "boot_command": [
         "<esc><wait><enter><wait>",
-        "linux autoyast=http://{{ .HTTPIP }}:{{ .HTTPPort }}/autoinst.xml ",
+        "linux autoyast=http://{{ .HTTPIP }}:{{ .HTTPPort }}/autoinsttw.xml ",
         "<enter><wait>"
       ],
       "boot_wait": "10s",
@@ -25,7 +26,7 @@
       "guest_os_type": "OpenSUSE_64",
       "headless": false,
       "http_directory": "http",
-      "iso_checksum": "c2ee8182051476e16be836e036aad0f2d59fd10a95fd4dc88bf128f60e9b02fa",
+      "iso_checksum": "{{user `iso_hash`}}",
       "iso_checksum_type": "sha256",
       "iso_url": "https://ftp.gwdg.de/pub/opensuse/{{user `suse_codename`}}/iso/openSUSE-{{user `suse_codename_uc`}}-NET-x86_64-Snapshot{{user `suse_version`}}-Media.iso",
       "ssh_username": "ansible",
