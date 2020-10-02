@@ -28,9 +28,7 @@ There is now experimentl support for Tumbleweed using
 file `opensuse-tumbleweed-amd64.json`.
 
 Known Bugs in Tumbleweed install:
-* two validation errors in `http/autoinst.xml` (manually click on 
-  `Continue` to finish installation)
-* one of network cards is not initialized
+* one of network cards is not initialized - problem caused by rename
 
 
 # Bugs
