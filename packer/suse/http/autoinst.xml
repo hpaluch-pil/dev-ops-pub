@@ -427,7 +427,7 @@
   <users config:type="list">
     <user>
       <authorized_keys config:type="list"/>
-      <encrypted config:type="boolean">true</encrypted>
+      <encrypted config:type="boolean">false</encrypted>
       <fullname>ansible</fullname>
       <gid>100</gid>
       <home>/home/ansible</home>
@@ -443,12 +443,11 @@
       <shell>/bin/bash</shell>
       <uid>1000</uid>
       <user_password>Hesl007</user_password>
-      <encrypted config:type="boolean">false</encrypted>
       <username>ansible</username>
     </user>
    <user>
       <authorized_keys config:type="list"/>
-      <encrypted config:type="boolean">true</encrypted>
+      <encrypted config:type="boolean">false</encrypted>
       <fullname>root</fullname>
       <gid>0</gid>
       <home>/root</home>
@@ -464,7 +463,6 @@
       <shell>/bin/bash</shell>
       <uid>0</uid>
       <user_password>RootHesl007</user_password>
-      <encrypted config:type="boolean">false</encrypted>
       <username>root</username>
     </user>
  </users>
