@@ -258,7 +258,6 @@
         <device>enp0s3</device>
         <startmode>auto</startmode>
         <dhclient_set_default_route>yes</dhclient_set_default_route>
-        <name>Ethernet Card 0</name>
       </interface>
       <interface>
         <bootproto>dhcp4</bootproto>
@@ -277,7 +276,7 @@
         <usercontrol>no</usercontrol>
       </interface>
     </interfaces>
-    <ipv6 config:type="boolean">true</ipv6>
+    <ipv6 config:type="boolean">false</ipv6>
     <keep_install_network config:type="boolean">true</keep_install_network>
     <managed config:type="boolean">false</managed>
     <routing>
