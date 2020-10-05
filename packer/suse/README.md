@@ -24,8 +24,12 @@ packer build -on-error=ask opensuse-15.X-amd64.json
 
 # Notes
 
-There is now experimentl support for Tumbleweed using
+There is now experimental support for Tumbleweed using
 file `opensuse-tumbleweed-amd64.json`.
+
+WARNING! Tumbleweed changes very frequently (every few days). So you
+very likely need to update `suse_version` and `iso_hash"` in
+`opensuse-tumbleweed-amd64.json` to build it successfully.
 
 # Bugs
 

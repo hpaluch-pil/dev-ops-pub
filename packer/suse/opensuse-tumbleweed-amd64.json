@@ -4,8 +4,8 @@
         "ansible_pwd": "Hesl007",
 	"suse_codename": "tumbleweed",
 	"suse_codename_uc": "Tumbleweed",
-        "suse_version": "20200930",
-	"iso_hash": "14fcc527b49fb2eb8886eb01ac1afd75cef4fbafb3c76156305a56452a54c1bf"
+        "suse_version": "20201002",
+	"iso_hash": "fcfa8707f7692a3cf75015b5e26da0716bd95c621e437c17e2a8678fa29ebc37"
     },
   "builders": [
     {
@@ -48,7 +48,10 @@
         [ "modifyvm", "{{.Name}}", "--nictype2", "virtio" ],
         [ "modifyvm", "{{.Name}}", "--nic2", "hostonly" ],
         [ "modifyvm", "{{.Name}}", "--hostonlyadapter2", "VirtualBox Host-Only Ethernet Adapter" ]
-      ]
+      ],
+      "vboxmanage_post": [
+        [ "modifyvm", "{{.Name}}", "--vrde", "off" ]
+      ] 
     }
   ],
   "provisioners": [
