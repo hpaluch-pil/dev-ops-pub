@@ -4,8 +4,8 @@
         "ansible_pwd": "Hesl007",
 	"suse_codename": "tumbleweed",
 	"suse_codename_uc": "Tumbleweed",
-        "suse_version": "20201002",
-	"iso_hash": "fcfa8707f7692a3cf75015b5e26da0716bd95c621e437c17e2a8678fa29ebc37"
+        "suse_version": "20210203",
+	"iso_hash": "41563e2f6c01241b1a9a76f612702da0e8829d822efbaa293a9c5406707bc5f3"
     },
   "builders": [
     {
