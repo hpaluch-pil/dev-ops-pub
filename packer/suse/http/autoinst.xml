@@ -286,12 +286,17 @@
     </routing>
   </networking>
   <nis>
-    <netconfig_policy>auto</netconfig_policy>
+    <netconfig_policy></netconfig_policy>
     <nis_broadcast config:type="boolean">false</nis_broadcast>
     <nis_broken_server config:type="boolean">false</nis_broken_server>
     <nis_domain/>
     <nis_local_only config:type="boolean">false</nis_local_only>
+    <start_nis config:type="boolean">false</start_nis>
   </nis>
+  <ntp-client>
+    <ntp_policy><![CDATA[]]></ntp_policy>
+    <ntp_sync>systemd</ntp_sync>
+  </ntp-client>
   <partitioning config:type="list">
     <drive>
       <device>/dev/sda</device>
@@ -377,7 +382,7 @@
   </services-manager>
   <software>
     <image/>
-    <install_recommended config:type="boolean">true</install_recommended>
+    <install_recommended config:type="boolean">false</install_recommended>
     <instsource/>
     <packages config:type="list">
       <package>wicked</package>
@@ -394,6 +399,20 @@
       <package>vim</package>
       <package>sudo</package>
       <package>less</package>
+      <package>man</package>
+      <!--
+      <remove-packages config:type="list">
+        <package>google-opensans-fonts</package>
+	<package>adobe-sourcecodepro-fonts</package>
+        <package>adobe-sourcesanspro-fonts</package>
+        <package>hicolor-icon-theme</package>
+        <package>libX11-6</package>
+        <package>raleway-fonts</package>
+        <package>sound-theme-freedesktop</package>
+        <package>wallpaper-branding-openSUSE</package>
+        <package>systemd-icon-branding-openSUSE</package>
+      </remove-packages>
+      -->
     </packages>
     <patterns config:type="list">
       <pattern>apparmor</pattern>
@@ -466,4 +485,30 @@
       <username>root</username>
     </user>
  </users>
+ <files config:type="list">
+  <file>
+    <file_path>/etc/sudoers</file_path>
+    <file_contents><![CDATA[
+## sudoers file.
+##
+## This file MUST be edited with the 'visudo' command as root.
+## Failure to use 'visudo' may result in syntax or file permission errors
+## that prevent sudo from running.
+##
+## See the sudoers man page for the details on how to write a sudoers file.
+##
+Defaults always_set_home
+Defaults secure_path="/usr/sbin:/usr/bin:/sbin:/bin"
+Defaults env_reset
+Defaults env_keep = "LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_ATIME LC_ALL LANGUAGE LINGUAS XDG_SESSION_COOKIE"
+Defaults !insults
+Defaults targetpw   # ask for the password of the target user i.e. root
+root ALL=(ALL) ALL
+%wheel ALL=(ALL) NOPASSWD: ALL
+#includedir /etc/sudoers.d
+	    ]]></file_contents>
+    <file_owner>root.root</file_owner>
+    <file_permissions>440</file_permissions>
+  </file>
+ </files>
 </profile>
