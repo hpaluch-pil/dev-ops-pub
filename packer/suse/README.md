@@ -1,16 +1,15 @@
-# OpenSUSE 15.1 VirtualBox image builder
+# OpenSUSE 15.5 VirtualBox image builder
 
-Here are files to build VirtualBox image (ova) of OpenSUSE15.1 
-using HashiCorp's Packer.
+Here are files to build VirtualBox image (ova) with
+openSUSE LEAP 15.5 using HashiCorp's Packer.
 
 WARNING! Work in progress.
 
-
 Recommended software:
-- VirtualBox 5.x (tested 5.2.32)
-- HashiCorp's Packer 0.12.2
+- VirtualBox 7.x (tested 7.0.8)
+- HashiCorp's Packer 1.9.1/Windows
+  - tested https://releases.hashicorp.com/packer/1.9.1/packer_1.9.1_windows_amd64.zip
 - Host OS: Windows 10 Enterprise N
-
 
 How to build image:
 
