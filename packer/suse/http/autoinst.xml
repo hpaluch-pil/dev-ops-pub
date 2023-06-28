@@ -174,7 +174,7 @@
     </group>
    <group>
       <encrypted config:type="boolean">true</encrypted>
-      <gid>497</gid>
+      <gid>101</gid>
       <group_password>x</group_password>
       <groupname>wheel</groupname>
       <userlist>ansible</userlist>
