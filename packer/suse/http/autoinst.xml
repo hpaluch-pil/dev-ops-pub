@@ -420,7 +420,7 @@
       <pattern>yast2_basis</pattern>
     </patterns>
     <products config:type="list">
-      <product>openSUSE</product>
+      <product>Leap</product>
     </products>
   </software>
   <ssh_import>
