@@ -58,8 +58,7 @@
         "scripts/fix_repos-15.5.sh",
         "scripts/packages.sh",
         "scripts/clean_grub.sh",
-        "scripts/cleanup.sh",
-        "scripts/sudo_wheel.sh"
+        "scripts/cleanup.sh"
       ]
     }
   ]
